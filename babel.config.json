@@ -3,10 +3,8 @@
     "@babel/preset-env",
     "@babel/preset-typescript",
     [
-      // preset-react потребовался для RTL для теста React-компонента
       "@babel/preset-react",
       {
-        // чтобы в тестах не импортироать React
         "runtime": "automatic"
       }
     ]

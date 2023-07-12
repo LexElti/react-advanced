@@ -30,9 +30,7 @@ export default {
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
     ],
     rootDir: '../../',
-    // для RTL, т.к. в нем импортнули jest-dom
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
-    // для RTL, для моков css, svg
     moduleNameMapper: {
         '\\.s?css$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),

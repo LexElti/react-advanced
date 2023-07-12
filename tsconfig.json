@@ -39,7 +39,11 @@
     }
   },
   "include": [
-    // для RTL, т.к. в нем импортнули jest-dom
-    "./config/jest/setupTests.ts"
+    "./config/jest/setupTests.ts",
+    // по дефолту и так все ts файлывключены
+    // но т.к. мы явно указали setupTests.ts
+    // то необходимо яно указать все остальные ts файлы
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
   ]
 }

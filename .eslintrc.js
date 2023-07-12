@@ -45,7 +45,7 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid'],
+                ignoreAttribute: ['data-testid', 'to'],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 100 }],
@@ -53,7 +53,6 @@ module.exports = {
     globals: {
         __IS_DEV__: true,
     },
-    // для переопределения правил для определенных файлов
     overrides: [
         {
             files: ['**/src/**/*.test.{ts,tsx}'],
