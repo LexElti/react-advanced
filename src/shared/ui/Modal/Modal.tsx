@@ -37,7 +37,7 @@ export const Modal = (props: ModalProps) => {
         }
     }, [onClose]);
 
-    // Сохранить ссылку на функцию, чтоб при перерендере она не перезаписывалась
+    // Новые ссылки!!!
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
             closeHandler();
