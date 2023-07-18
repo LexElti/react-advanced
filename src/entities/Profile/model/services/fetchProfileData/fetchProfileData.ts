@@ -13,13 +13,9 @@ export const fetchProfileData = createAsyncThunk<
             const { extra, rejectWithValue } = thunkApi;
 
             try {
-                // const response = await extra.api.get<Profile>('/profile');
-                const response = await Promise.resolve({
-                    first: 'Иван',
-                    lastname: 'Иванов',
-                });
+                const response = await extra.api.get<Profile>('/profile');
 
-                return response as Profile;
+                return response.data;
             } catch (e) {
                 console.log(e);
                 return rejectWithValue('error');
