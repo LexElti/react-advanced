@@ -9,7 +9,6 @@ import {
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from 'entities/User';
-import { createSelector } from '@reduxjs/toolkit';
 import cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -25,11 +24,6 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     const authData = useSelector(getUserAuthData);
     const profileData = useSelector(getProfileData);
     const canEdit = authData?.id === profileData?.id;
-    // const getCanEdit = createSelector(
-    //     [getUserAuthData, getProfileData],
-    //     (authData, profileData) => authData?.id === profileData?.id,
-    // );
-    // const canEdit = useSelector(getCanEdit);
     const readonly = useSelector(getProfileReadonly);
     const dispatch = useAppDispatch();
 
