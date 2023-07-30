@@ -38,9 +38,9 @@ export const Page = memo((props: PageProps) => {
         wrapperRef.current.scrollTop = scrollPosition;
     });
 
-    const onScroll = useThrottle((scrollTop: number) => {
+    const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
         dispatch(uiActions.setScrollPosition({
-            position: scrollTop,
+            position: e.currentTarget.scrollTop,
             path: pathname,
         }));
     }, 500);
@@ -49,12 +49,10 @@ export const Page = memo((props: PageProps) => {
         <section
             ref={wrapperRef}
             className={classNames(cls.Page, {}, [className])}
-            onScroll={(e) => {
-                onScroll(e.currentTarget.scrollTop);
-            }}
+            onScroll={onScroll}
         >
             {children}
-            <div ref={triggerRef} />
+            {onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}
         </section>
     );
 });
