@@ -11,7 +11,7 @@ const data = {
     lastname: 'LexDev',
     first: 'asd',
     city: 'asf',
-    currency: Currency.RUB,
+    currency: Currency.USD,
     id: '1',
 };
 

@@ -12,7 +12,7 @@ const data = {
     lastname: 'LexDev',
     first: 'asd',
     city: 'asf',
-    currency: Currency.RUB,
+    currency: Currency.USD,
 };
 
 describe('profileSlice.test', () => {

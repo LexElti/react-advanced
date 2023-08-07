@@ -12,7 +12,7 @@ describe('getProfileData.test', () => {
             lastname: 'LexDev',
             first: 'asd',
             city: 'asf',
-            currency: Currency.RUB,
+            currency: Currency.USD,
         };
         const state: DeepPartial<StateSchema> = {
             profile: {

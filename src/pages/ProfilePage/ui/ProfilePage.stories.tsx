@@ -28,7 +28,7 @@ Normal.decorators = [StoreDecorator({
             lastname: 'LexDev',
             first: 'asd',
             city: 'asf',
-            currency: Currency.RUB,
+            currency: Currency.USD,
         },
     },
 })];
@@ -44,7 +44,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
             lastname: 'LexDev',
             first: 'asd',
             city: 'asf',
-            currency: Currency.RUB,
+            currency: Currency.USD,
         },
     },
 })];

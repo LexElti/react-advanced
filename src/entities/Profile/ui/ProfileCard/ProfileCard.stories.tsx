@@ -24,7 +24,7 @@ Primary.args = {
         lastname: 'LexDev',
         first: 'asd',
         city: 'asf',
-        currency: Currency.RUB,
+        currency: Currency.USD,
         avatar,
     },
 };
