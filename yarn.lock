@@ -7197,10 +7197,10 @@
     "debug" "^3.2.7"
     "find-up" "^2.1.0"
 
-"eslint-plugin-custom-fsd-imports@^0.1.0":
-  "integrity" "sha512-+jxQ5VSQ5/f1U4bxkWD09lj0CpuFDW9fbAtbJNPFHuiY0wazkJrRjivem6VIbydtImZ7OzEmbh/2CofoGf3Xzg=="
-  "resolved" "https://registry.npmjs.org/eslint-plugin-custom-fsd-imports/-/eslint-plugin-custom-fsd-imports-0.1.0.tgz"
-  "version" "0.1.0"
+"eslint-plugin-custom-fsd-imports@^0.2.0":
+  "integrity" "sha512-Hq8R1AWTFjeoM67LitfOajAOicx6k5zVlqwlk/th6hMFkzqIFNMrewrLpMYA6kEOfnfib0r3XIN2GmVx7KyghQ=="
+  "resolved" "https://registry.npmjs.org/eslint-plugin-custom-fsd-imports/-/eslint-plugin-custom-fsd-imports-0.2.0.tgz"
+  "version" "0.2.0"
   dependencies:
     "requireindex" "^1.2.0"
 

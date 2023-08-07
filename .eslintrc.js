@@ -70,7 +70,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
-        'custom-fsd-imports/path-checker': 'error',
+        'custom-fsd-imports/path-checker': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,
