@@ -70,7 +70,14 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
-        'custom-fsd-imports/path-checker': ['error', { alias: '@' }],
+        'custom-fsd-imports/slice-imports': ['error', { alias: '@' }],
+        'custom-fsd-imports/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
         'custom-fsd-imports/public-api-imports': [
             'error',
             {
