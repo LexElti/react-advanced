@@ -1,19 +1,27 @@
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './NotFoundPage.module.scss';
+import { Page } from '@/widgets/Page';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
 
-interface NotFoundPageProps {
-    className?: string;
-}
-
-export const NotFoundPage = ({ className }: NotFoundPageProps) => {
+const NotFoundPage = () => {
     const { t } = useTranslation();
+    const message = t('Страница не найдена');
+
     return (
-        <div
-            data-testid="NotFoundPage"
-            className={classNames(cls.NotFoundPage, {}, [className])}
-        >
-            {t('Страница не найдена')}
-        </div>
+        <Page data-testid="NotFoundPage">
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <Card fullWidth border="partial" padding="24">
+                        <Text text={message} size="l" />
+                    </Card>
+                }
+                off={<TextDeprecated text={message} />}
+            />
+        </Page>
     );
 };
+
+export default NotFoundPage;

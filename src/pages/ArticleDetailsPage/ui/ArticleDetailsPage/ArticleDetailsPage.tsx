@@ -1,8 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entities/Article';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -21,16 +19,11 @@ import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
 import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
 
-interface ArticleDetailsPageProps {
-    className?: string;
-}
-
 const reducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
 };
 
-const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
-    const { className } = props;
+const ArticleDetailsPage = () => {
     const { t } = useTranslation('article-details');
     const { id } = useParams<{ id: string }>();
 
@@ -45,13 +38,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                 on={
                     <StickyContentLayout
                         content={
-                            <Page
-                                className={classNames(
-                                    cls.ArticleDetailsPage,
-                                    {},
-                                    [className],
-                                )}
-                            >
+                            <Page className={cls.ArticleDetailsPage}>
                                 <VStack gap="16" max>
                                     <DetailsContainer />
                                     <ArticleRating articleId={id} />
@@ -64,11 +51,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                     />
                 }
                 off={
-                    <Page
-                        className={classNames(cls.ArticleDetailsPage, {}, [
-                            className,
-                        ])}
-                    >
+                    <Page className={cls.ArticleDetailsPage}>
                         <VStack gap="16" max>
                             <ArticleDetailsPageHeader />
                             <ArticleDetails id={id} />
@@ -91,4 +74,4 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     );
 };
 
-export default memo(ArticleDetailsPage);
+export default ArticleDetailsPage;

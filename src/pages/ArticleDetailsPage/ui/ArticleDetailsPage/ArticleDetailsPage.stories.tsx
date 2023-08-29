@@ -14,7 +14,7 @@ export default {
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
-    <ArticleDetailsPage {...args} />
+    <ArticleDetailsPage />
 );
 
 const article: Article = {

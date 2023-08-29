@@ -1,26 +1,23 @@
 import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
-import { Text } from '@/shared/ui/redesigned/Text';
 import { Page } from '@/widgets/Page';
-import { VStack } from '@/shared/ui/redesigned/Stack';
 import { UiDesignSwitcher } from '@/features/uiDesignSwitcher';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Card } from '@/shared/ui/redesigned/Card';
 
-interface SettingsPageProps {
-    className?: string;
-}
-
-const SettingsPage = memo((props: SettingsPageProps) => {
-    const { className } = props;
+const SettingsPage = () => {
     const { t } = useTranslation();
 
     return (
-        <Page>
-            <VStack gap="16">
-                <Text title={t('Настройки пользователя')} />
-                <UiDesignSwitcher />
-            </VStack>
+        <Page data-testid="SettingsPage">
+            <Card fullWidth border="partial" padding="24">
+                <VStack gap="16">
+                    <Text title={t('Настройки пользователя')} />
+                    <UiDesignSwitcher />
+                </VStack>
+            </Card>
         </Page>
     );
-});
+};
 
 export default SettingsPage;

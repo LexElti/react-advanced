@@ -1,7 +1,5 @@
-import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -21,17 +19,11 @@ import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer';
 import { FiltersContainer } from '../FiltersContainer/FiltersContainer';
 
-interface ArticlesPageProps {
-    className?: string;
-}
-
 const reducers: ReducersList = {
     articlesPage: articlesPageReducer,
 };
 
-const ArticlesPage = (props: ArticlesPageProps) => {
-    const { className } = props;
-    const { t } = useTranslation();
+const ArticlesPage = () => {
     const dispatch = useAppDispatch();
     const [searchParams] = useSearchParams();
 
@@ -54,11 +46,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                         <Page
                             data-testid="ArticlesPage"
                             onScrollEnd={onLoadNextPart}
-                            className={classNames(
-                                cls.ArticlesPageRedesigned,
-                                {},
-                                [className],
-                            )}
+                            className={cls.ArticlesPageRedesigned}
                         >
                             <ArticleInfiniteList className={cls.list} />
                             <ArticlePageGreeting />
@@ -70,7 +58,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                 <Page
                     data-testid="ArticlesPage"
                     onScrollEnd={onLoadNextPart}
-                    className={classNames(cls.ArticlesPage, {}, [className])}
+                    className={cls.ArticlesPage}
                 >
                     <ArticlesPageFilters />
                     <ArticleInfiniteList className={cls.list} />
@@ -87,4 +75,4 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     );
 };
 
-export default memo(ArticlesPage);
+export default ArticlesPage;
