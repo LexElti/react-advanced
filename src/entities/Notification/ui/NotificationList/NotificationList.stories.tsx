@@ -29,20 +29,17 @@ Normal.parameters = {
                 {
                     id: '1',
                     title: 'Уведомление',
-                    description:
-                        'Поставь лайк и оставь комментарий под LexDev',
+                    description: 'Поставь лайк и оставь комментарий под LexDev',
                 },
                 {
                     id: '2',
                     title: 'Уведомление 2',
-                    description:
-                        'Поставь лайк и оставь комментарий под LexDev',
+                    description: 'Поставь лайк и оставь комментарий под LexDev',
                 },
                 {
                     id: '3',
                     title: 'Уведомление 3',
-                    description:
-                        'Поставь лайк и оставь комментарий под LexDev',
+                    description: 'Поставь лайк и оставь комментарий под LexDev',
                 },
             ],
         },
