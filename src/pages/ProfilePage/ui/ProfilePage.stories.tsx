@@ -13,20 +13,23 @@ export default {
 
 const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage />;
 
+const formData = {
+    username: 'admin',
+    age: 22,
+    country: Country.Russia,
+    lastname: 'Dev',
+    first: 'Lex',
+    city: 'Moscow',
+    currency: Currency.RUB,
+    avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
+};
+
 export const Normal = Template.bind({});
 Normal.args = {};
 Normal.decorators = [
     StoreDecorator({
         profile: {
-            form: {
-                username: 'admin',
-                age: 22,
-                country: Country.Russia,
-                lastname: 'Dev',
-                first: 'Lex',
-                city: 'Moscow',
-                currency: Currency.RUB,
-            },
+            form: formData,
         },
     }),
 ];
@@ -37,15 +40,7 @@ Dark.decorators = [
     ThemeDecorator(Theme.DARK),
     StoreDecorator({
         profile: {
-            form: {
-                username: 'admin',
-                age: 22,
-                country: Country.Russia,
-                lastname: 'Dev',
-                first: 'Lex',
-                city: 'Moscow',
-                currency: Currency.RUB,
-            },
+            form: formData,
         },
     }),
 ];

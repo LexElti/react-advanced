@@ -1,7 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import avatar from '@/shared/assets/tests/storybook.jpg';
 import { ProfileCard } from './ProfileCard';
 import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator';
 
@@ -23,7 +22,7 @@ const primaryArgs = {
         first: 'Lex',
         city: 'Moscow',
         currency: Currency.RUB,
-        avatar,
+        avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
     },
 };
 
