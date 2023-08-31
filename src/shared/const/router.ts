@@ -1,3 +1,5 @@
+import { matchPath } from 'react-router-dom';
+
 export enum AppRoutes {
     MAIN = 'main',
     SETTINGS = 'settings',
@@ -36,3 +38,8 @@ export const AppRouteByPathPattern: Record<string, AppRoutes> = {
     [getRouteAdmin()]: AppRoutes.ADMIN_PANEL,
     [getRouteForbidden()]: AppRoutes.FORBIDDEN,
 };
+
+export const getPathPattern = (pathname: string) =>
+    Object.entries(AppRouteByPathPattern).find(([pattern]) =>
+        Boolean(matchPath(pattern, pathname)),
+    )?.[0] || '';
