@@ -6,10 +6,12 @@ import { articleDetailsReducer } from '@/entities/Article/testing';
 import { addCommentFormReducer } from '@/features/addCommentForm/testing';
 import { profileReducer } from '@/features/editableProfileCard/testing';
 import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
+import { articlesPageReducer } from '@/pages/ArticlesPage/testing';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
     profile: profileReducer,
+    articlesPage: articlesPageReducer,
     articleDetails: articleDetailsReducer,
     addCommentForm: addCommentFormReducer,
     articleDetailsPage: articleDetailsPageReducer,

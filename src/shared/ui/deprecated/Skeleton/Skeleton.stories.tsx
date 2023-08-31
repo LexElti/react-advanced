@@ -1,6 +1,4 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Skeleton } from './Skeleton';
 import { Theme } from '@/shared/const/theme';
@@ -8,9 +6,6 @@ import { Theme } from '@/shared/const/theme';
 export default {
     title: 'shared/Skeleton',
     component: Skeleton,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
 } as ComponentMeta<typeof Skeleton>;
 
 const Template: ComponentStory<typeof Skeleton> = (args) => (

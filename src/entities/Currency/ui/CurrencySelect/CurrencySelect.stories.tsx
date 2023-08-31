@@ -1,13 +1,16 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { CurrencySelect } from './CurrencySelect';
 
 export default {
     title: 'entities/CurrencySelect',
     component: CurrencySelect,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
+    decorators: [
+        (Story) => (
+            <div style={{ paddingTop: 200 }}>
+                <Story />
+            </div>
+        ),
+    ],
 } as ComponentMeta<typeof CurrencySelect>;
 
 const Template: ComponentStory<typeof CurrencySelect> = (args) => (

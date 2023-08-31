@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { Page } from '@/widgets/Page';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Card } from '@/shared/ui/redesigned/Card';
 import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { Text } from '@/shared/ui/redesigned/Text';
+import { Card } from '@/shared/ui/redesigned/Card';
 
 const MainPage = () => {
     const { t } = useTranslation();

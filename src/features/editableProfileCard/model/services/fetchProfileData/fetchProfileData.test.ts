@@ -7,10 +7,10 @@ const data = {
     username: 'admin',
     age: 22,
     country: Country.Russia,
-    lastname: 'LexDev',
-    first: 'asd',
-    city: 'asf',
-    currency: Currency.USD,
+    lastname: 'Dev',
+    first: 'Lex',
+    city: 'Moscow',
+    currency: Currency.RUB,
 };
 
 describe('fetchProfileData.test', () => {

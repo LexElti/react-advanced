@@ -1,14 +1,9 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import { CommentList } from './CommentList';
 
 export default {
     title: 'entities/Comment/CommentList',
     component: CommentList,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
 } as ComponentMeta<typeof CommentList>;
 
 const Template: ComponentStory<typeof CommentList> = (args) => (
@@ -21,12 +16,12 @@ Normal.args = {
         {
             id: '1',
             text: 'hello world',
-            user: { id: '1', username: 'Vasya' },
+            user: { id: '1', username: 'Max' },
         },
         {
             id: '2',
-            text: 'Comment 2',
-            user: { id: '1', username: 'Petya' },
+            text: 'Подробный комментарий',
+            user: { id: '1', username: 'Vlad' },
         },
     ],
 };

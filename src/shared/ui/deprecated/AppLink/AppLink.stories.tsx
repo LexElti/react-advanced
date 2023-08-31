@@ -1,4 +1,3 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { AppLink, AppLinkTheme } from './AppLink';
@@ -7,9 +6,6 @@ import { Theme } from '@/shared/const/theme';
 export default {
     title: 'shared/AppLink',
     component: AppLink,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
     args: {
         to: '/',
     },

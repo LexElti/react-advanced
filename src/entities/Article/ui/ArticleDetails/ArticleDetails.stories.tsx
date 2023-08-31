@@ -1,6 +1,4 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import {
     ArticleType,
@@ -12,9 +10,6 @@ import { ArticleDetails } from './ArticleDetails';
 export default {
     title: 'entities/Article/ArticleDetails',
     component: ArticleDetails,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
 } as ComponentMeta<typeof ArticleDetails>;
 
 const Template: ComponentStory<typeof ArticleDetails> = (args) => (
@@ -24,10 +19,10 @@ const Template: ComponentStory<typeof ArticleDetails> = (args) => (
 const article: Article = {
     id: '1',
     title: 'Javascript news',
-    subtitle: 'Что нового в JS за 2022 год?',
+    subtitle: 'Что нового в JS за 2023 год?',
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
-    createdAt: '26.02.2022',
+    createdAt: '26.02.2023',
     type: [ArticleType.IT],
     user: {
         id: '1',

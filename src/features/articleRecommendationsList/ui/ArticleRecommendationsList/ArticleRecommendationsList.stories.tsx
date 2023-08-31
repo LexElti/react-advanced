@@ -1,6 +1,4 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Article } from '@/entities/Article';
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
@@ -8,9 +6,6 @@ import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 export default {
     title: 'features/ArticleRecommendationsList',
     component: ArticleRecommendationsList,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
 } as ComponentMeta<typeof ArticleRecommendationsList>;
 
 const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
@@ -19,14 +14,14 @@ const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
 
 const article: Article = {
     id: '1',
-    img: '',
-    createdAt: '',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png',
+    createdAt: '26.02.2023',
     views: 123,
-    user: { id: '1', username: '123' },
+    user: { id: '1', username: 'user' },
     blocks: [],
     type: [],
-    title: '123',
-    subtitle: 'asfsa',
+    title: 'JavaScript',
+    subtitle: 'news',
 };
 
 export const Normal = Template.bind({});
@@ -35,7 +30,7 @@ Normal.decorators = [StoreDecorator({})];
 Normal.parameters = {
     mockData: [
         {
-            url: `${__API__}/articles?_limit=3`,
+            url: `${__API__}/articles?_limit=3&_expand=user`,
             method: 'GET',
             status: 200,
             response: [

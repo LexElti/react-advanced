@@ -1,6 +1,4 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import { Article, ArticleBlockType, ArticleType } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
@@ -8,8 +6,8 @@ import ArticleDetailsPage from './ArticleDetailsPage';
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
     component: ArticleDetailsPage,
-    argTypes: {
-        backgroundColor: { control: 'color' },
+    parameters: {
+        route: '/articles/7',
     },
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
@@ -20,10 +18,10 @@ const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
 const article: Article = {
     id: '1',
     title: 'Javascript news',
-    subtitle: 'Что нового в JS за 2022 год?',
+    subtitle: 'Что нового в JS за 2023 год?',
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
-    createdAt: '26.02.2022',
+    createdAt: '26.02.2023',
     type: [ArticleType.IT],
     user: {
         id: '1',
@@ -66,3 +64,17 @@ Normal.decorators = [
         },
     }),
 ];
+Normal.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/articles?_limit=3&_expand=user`,
+            method: 'GET',
+            status: 200,
+            response: [
+                { ...article, id: '1' },
+                { ...article, id: '2' },
+                { ...article, id: '3' },
+            ],
+        },
+    ],
+};
