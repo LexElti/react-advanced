@@ -26,8 +26,8 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         }],
     };
 
-    const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
-    const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
+    const codeBabelLoader = buildBabelLoader({ ...options, isTSX: false });
+    const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTSX: true });
 
     const cssLoader = buildCssLoader(isDev);
 
