@@ -11,6 +11,7 @@ describe('Пользователь заходит на страницу проф
     afterEach(() => {
         cy.resetProfile(profileId);
     });
+
     it('И профиль успешно загружается', () => {
         cy.getByTestId('ProfileCard.firstname').should('have.value', 'test');
     });

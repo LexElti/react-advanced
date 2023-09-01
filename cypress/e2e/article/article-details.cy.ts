@@ -1,4 +1,5 @@
 let currentArticleId = '';
+
 describe('Пользователь заходит на страницу статьи', () => {
     beforeEach(() => {
         cy.login();
@@ -10,6 +11,7 @@ describe('Пользователь заходит на страницу стат
     afterEach(() => {
         cy.removeArticle(currentArticleId);
     });
+
     it('И видит содержимое статьи', () => {
         cy.getByTestId('ArticleDetails.Info').should('exist');
     });
