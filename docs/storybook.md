@@ -9,14 +9,11 @@
 
 -   `npm run storybook`
 
-Подробнее о [Storybook](/docs/storybook.md)
-
 Пример:
 
 ```typescript jsx
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Button, ButtonSize, ButtonTheme } from './Button';
+import { Button, ButtonTheme } from './Button';
 import { Theme } from '@/shared/const/theme';
 
 export default {

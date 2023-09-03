@@ -1,7 +1,7 @@
 ## Запуск проекта
 
 ```
-npm install - устанавливаем зависимости
+npm ci - устанавливаем зависимости
 npm run start:dev или npm run start:dev:vite - запуск сервера + frontend проекта в dev режиме
 ```
 
@@ -16,11 +16,13 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 -   `npm run start:dev:server` - Запуск backend сервера
 -   `npm run build:prod` - Сборка в prod режиме
 -   `npm run build:dev` - Сборка в dev режиме (не минимизирован)
--   `npm run lint:ts` - Проверка ts файлов линтером
--   `npm run lint:ts:fix` - Исправление ts файлов линтером
+-   `npm run prettier` - Форматирование ts, tsx,json файлов prettier
+-   `npm run lint:ts` - Проверка ts, tsx файлов линтером
+-   `npm run lint:ts:fix` - Исправление ts, tsx файлов линтером
 -   `npm run lint:scss` - Проверка scss файлов style линтером
 -   `npm run lint:scss:fix` - Исправление scss файлов style линтером
 -   `npm run test:unit` - Запуск unit тестов с jest
+-   `npm run test:e2e` - Запуск Cypress тестов
 -   `npm run test:ui` - Запуск скриншотных тестов с loki
 -   `npm run test:ui:ok` - Подтверждение новых скриншотов
 -   `npm run test:ui:ci` - Запуск скриншотных тестов в CI
@@ -31,6 +33,8 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 -   `npm run storybook:build` - Сборка storybook билда
 -   `npm run prepare` - прекоммит хуки
 -   `npm run generate:slice` - Скрипт для генерации FSD слайсов
+-   `npm run postinstall` - Скрипт для очистки кэша в папке node_modules/.cache
+-   `npm run remove-feature` - Скрипт для удаления фичей по feature flags
 
 ---
 
@@ -47,8 +51,6 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 В проекте используется библиотека i18next для работы с переводами.
 Файлы с переводами хранятся в public/locales.
 
-Для комфортной работы рекомендуем установить плагин для webstorm/vscode
-
 Документация i18next - [https://react.i18next.com/](https://react.i18next.com/)
 
 ---
@@ -57,10 +59,10 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 В проекте используются 4 вида тестов:
 
-1. Обычные unit тесты на jest - `npm run test:unit`
-2. Тесты на компоненты с React testing library -`npm run test:unit`
-3. Скриншотное тестирование с loki `npm run test:ui`
-4. e2e тестирование с Cypress `npm run test:e2e`
+1. Обычные unit тесты на jest
+2. Тесты на компоненты с React testing library
+3. Скриншотное тестирование с loki
+4. e2e тестирование с Cypress
 
 Подробнее о тестах - [документация тестирование](/docs/tests.md)
 
@@ -81,8 +83,8 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 ##### Запуск линтеров
 
--   `npm run lint:ts` - Проверка ts файлов линтером
--   `npm run lint:ts:fix` - Исправление ts файлов линтером
+-   `npm run lint:ts` - Проверка ts, tsx файлов линтером
+-   `npm run lint:ts:fix` - Исправление ts, tsx файлов линтером
 -   `npm run lint:scss` - Проверка scss файлов style линтером
 -   `npm run lint:scss:fix` - Исправление scss файлов style линтером
 
@@ -90,44 +92,12 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 
 ## Storybook
 
-В проекте для каждого компонента описываются стори-кейсы.
+В проекте для компонентов описываются стори-кейсы.
 Запросы на сервер мокаются с помощью storybook-addon-mock.
 
-Файл со сторикейсами создает рядом с компонентом с расширением .stories.tsx
-
-Запустить сторибук можно командой:
-
--   `npm run storybook`
+Файл со сторикейсами создается рядом с компонентом с расширением .stories.tsx
 
 Подробнее о [Storybook](/docs/storybook.md)
-
-Пример:
-
-```typescript jsx
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Button, ButtonSize, ButtonTheme } from './Button';
-import { Theme } from '@/shared/const/theme';
-
-export default {
-    title: 'shared/Button',
-    component: Button,
-} as ComponentMeta<typeof Button>;
-
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
-
-export const Primary = Template.bind({});
-Primary.args = {
-    children: 'Text',
-};
-
-export const Clear = Template.bind({});
-Clear.args = {
-    children: 'Text',
-    theme: ButtonTheme.CLEAR,
-};
-```
 
 ---
 
@@ -147,6 +117,10 @@ Clear.args = {
 -   /config/jest - конфигурация тестовой среды
 -   /config/storybook - конфигурация сторибука
 
+---
+
+## Скрипты
+
 В папке `scripts` находятся различные скрипты для рефакторинга\упрощения написания кода\генерации отчетов и тд.
 
 ---
@@ -154,9 +128,9 @@ Clear.args = {
 ## CI pipeline и pre commit хуки
 
 Конфигурация github actions находится в /.github/workflows.
-В ci прогоняются все виды тестов, сборка проекта и сторибука, линтинг.
+В CI прогоняются тесты, сборка проекта и сторибука, линтинг.
 
-В прекоммит хуках проверяем проект линтерами, конфиг в /.husky
+В прекоммит хуках проект проверяется линтерами, конфиг в /.husky
 
 ---
 
@@ -174,9 +148,9 @@ Clear.args = {
 
 ### Работа с feature-flags
 
-Разрешено использование feature flags только с помощью хелпера toggleFeatures
+Разрешено использование feature flags только с помощью хелпера toggleFeatures и компонента ToggleFeatures.
 
-в него передается объект с опциями
+В хелпер toggleFeatures передается объект с опциями:
 
 {
 name: название фича-флага,
@@ -184,8 +158,10 @@ on: функция, которая отработает после Включе�
 of: функция, которая отработает после Выключения фичи
 }
 
+Аналогично в компонента ToggleFeatures передаются props.
+
 Для автоматического удаления фичи использовать скрипт remove-feature.ts,
-который принимает 2 аргумента
+который принимает 2 аргумента:
 
 1. Название удаляемого фича-флага
 2. Состояние (on\off)
@@ -208,13 +184,18 @@ of: функция, которая отработает после Выключ�
 
 -   [addCommentForm](/src/features/addCommentForm)
 -   [articleEditForm](/src/features/articleEditForm)
+-   [articlePageGreeting](/src/features/articlePageGreeting)
 -   [articleRating](/src/features/articleRating)
 -   [articleRecommendationsList](/src/features/articleRecommendationsList)
+-   [ArticleSortSelector](/src/features/ArticleSortSelector)
+-   [ArticleTypeTabs](/src/features/ArticleTypeTabs)
+-   [ArticleViewSelector](/src/features/ArticleViewSelector)
 -   [AuthByUsername](/src/features/AuthByUsername)
 -   [avatarDropdown](/src/features/avatarDropdown)
 -   [editableProfileCard](/src/features/editableProfileCard)
 -   [LangSwitcher](/src/features/LangSwitcher)
 -   [notificationButton](/src/features/notificationButton)
--   [profileRating](/src/features/profileRating)
+-   [scrollToTopButton](/src/features/scrollToTopButton)
 -   [ThemeSwitcher](/src/features/ThemeSwitcher)
 -   [UI](/src/features/UI)
+-   [uiDesignSwitcher](/src/features/uiDesignSwitcher)
